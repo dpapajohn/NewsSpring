@@ -1,13 +1,13 @@
-package com.papajohn.newsspring;
+package com.papajohn.NewsSpring;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class NewsspringApplication {
+public class NewsSpringApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(NewsspringApplication.class, args);
+		SpringApplication.run(NewsSpringApplication.class, args);
 	}
 
 }

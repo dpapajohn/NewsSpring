@@ -1,4 +1,4 @@
-package com.papajohn.newsspring;
+package com.papajohn.NewsSpring;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
