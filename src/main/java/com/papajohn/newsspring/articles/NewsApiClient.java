@@ -1,6 +1,7 @@
 package com.papajohn.NewsSpring.articles;
 
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestClient;
 import org.springframework.web.util.UriComponentsBuilder;
@@ -20,6 +21,7 @@ public class NewsApiClient {
             .build();
     }
 
+    @Cacheable("newsCache")
     public NewsApiResponse getBySourceName(String sourceName) {
         String uri = UriComponentsBuilder
             .fromPath("/v2/everything")
@@ -38,6 +40,7 @@ public class NewsApiClient {
             .body(NewsApiResponse.class);
     }
 
+    @Cacheable("newsCache")
     public NewsApiResponse getByTitle(String title) {
         String uri = UriComponentsBuilder
             .fromPath("/v2/everything")
@@ -56,6 +59,7 @@ public class NewsApiClient {
             .body(NewsApiResponse.class);
     }
 
+    @Cacheable("newsCache")
     public NewsApiResponse getByKeyword(String keyword) {
         String uri = UriComponentsBuilder
             .fromPath("/v2/everything")
@@ -71,6 +75,7 @@ public class NewsApiClient {
             .body(NewsApiResponse.class);
     }
 
+    @Cacheable("newsCache")
     public NewsApiResponse getTop(String country) {
         String uri = UriComponentsBuilder
             .fromPath("/v2/top-headlines")
@@ -86,6 +91,7 @@ public class NewsApiClient {
             .body(NewsApiResponse.class);
     }
 
+    @Cacheable("newsCache")
     public NewsApiResponse getTop(String country, String category) {
         String uri = UriComponentsBuilder
             .fromPath("/v2/top-headlines")
