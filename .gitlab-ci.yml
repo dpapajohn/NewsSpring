@@ -7,7 +7,7 @@ default:
 
 stages:
   - build
-  - test
+#  - test
   - release
   - deploy
 
@@ -24,16 +24,16 @@ build:
     - docker build --pull -t $CONTAINER_TEST_IMAGE .
     - docker push $CONTAINER_TEST_IMAGE
 
-test1:
-  stage: test
-  script:
-    - docker pull $CONTAINER_TEST_IMAGE
+#test1:
+#  stage: test
+#  script:
+#    - docker pull $CONTAINER_TEST_IMAGE
     #- docker run $CONTAINER_TEST_IMAGE /script/to/run/tests
 
-test2:
-  stage: test
-  script:
-    - docker pull $CONTAINER_TEST_IMAGE
+#test2:
+#  stage: test
+#  script:
+#    - docker pull $CONTAINER_TEST_IMAGE
     #- docker run $CONTAINER_TEST_IMAGE /script/to/run/another/test
 
 release-image:
@@ -44,7 +44,10 @@ release-image:
     - docker push $CONTAINER_RELEASE_IMAGE
 
 deploy:
-  stage: deploy
+  image:
+    name: bitnami/kubectl:latest
+    entrypoint: ['']
   script:
-    - ./deploy.sh
-  environment: production
+    - kubectl config get-contexts
+    - kubectl config use-context dpapajohn/newsspring:aws-eks-agent
+    - kubectl get pods
