@@ -29,7 +29,7 @@ jobs:
           env:
             REGISTRY: ${{ steps.login-ecr.outputs.registry }}
             REPOSITORY: dpapajohn-github
-            IMAGE_TAG: newsspring:${{ github.ref_name }}
+            IMAGE_TAG: newsspring
           run: |
             docker build -t $REGISTRY/$REPOSITORY:$IMAGE_TAG .
             docker push $REGISTRY/$REPOSITORY:$IMAGE_TAG
