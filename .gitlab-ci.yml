@@ -75,6 +75,6 @@ deploy2:
     - kubectl config set-context default --cluster=k8s --user=gitlab
     - kubectl config use-context default
     #- kubectl version
-    - kubectl apply -f deployment.yaml
+    - kubectl apply --validate=false -f deployment.yaml
   needs: []
   when: manual
