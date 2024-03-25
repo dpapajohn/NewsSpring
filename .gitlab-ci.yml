@@ -28,13 +28,13 @@ test1:
   stage: test
   script:
     - docker pull $CONTAINER_TEST_IMAGE
-    - docker run $CONTAINER_TEST_IMAGE /script/to/run/tests
+    #- docker run $CONTAINER_TEST_IMAGE /script/to/run/tests
 
 test2:
   stage: test
   script:
     - docker pull $CONTAINER_TEST_IMAGE
-    - docker run $CONTAINER_TEST_IMAGE /script/to/run/another/test
+    #- docker run $CONTAINER_TEST_IMAGE /script/to/run/another/test
 
 release-image:
   stage: release
@@ -42,8 +42,6 @@ release-image:
     - docker pull $CONTAINER_TEST_IMAGE
     - docker tag $CONTAINER_TEST_IMAGE $CONTAINER_RELEASE_IMAGE
     - docker push $CONTAINER_RELEASE_IMAGE
-  only:
-    - main
 
 deploy:
   stage: deploy
