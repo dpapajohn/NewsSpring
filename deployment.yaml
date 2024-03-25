@@ -23,7 +23,7 @@ spec:
       - name: gitlab-registry-secret
       containers:
         - name: newsspring
-          image: registry.gitlab.com/dpapajohn/newsspring:ci-test
+          image: newsspring:ci-test
           
           ports:
             - containerPort: 8080
