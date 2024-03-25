@@ -20,7 +20,7 @@ spec:
         app: newsspring
     spec:
       imagePullSecrets:
-      - name: gitlab-registry-secret
+      - name: regcred
       containers:
         - name: newsspring
           image: newsspring:ci-test
