@@ -46,6 +46,9 @@ release-image:
   when: manual
 
 deploy:
+  before_script:
+    - ''
+  services: []
   stage: deploy
   image:
     name: bitnami/kubectl:latest
