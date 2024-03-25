@@ -42,6 +42,8 @@ release-image:
     - docker pull $CONTAINER_TEST_IMAGE
     - docker tag $CONTAINER_TEST_IMAGE $CONTAINER_RELEASE_IMAGE
     - docker push $CONTAINER_RELEASE_IMAGE
+  needs: [build]
+  when: manual
 
 deploy:
   stage: deploy
@@ -52,3 +54,5 @@ deploy:
     - kubectl config get-contexts
     - kubectl config use-context dpapajohn/newsspring:aws-eks-agent
     - kubectl get pods
+  needs: []
+  when: manual
