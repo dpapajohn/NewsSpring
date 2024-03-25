@@ -69,7 +69,7 @@ deploy2:
     name: bitnami/kubectl:latest
     entrypoint: ['']
   script:
-    - kubectl config set-cluster k8s --server="${SERVER}"
+    - kubectl config set-cluster k8s --server="${K8S_ENDPOINT}"
     - kubectl config set clusters.k8s.certificate-authority-data ${CERTIFICATE_AUTHORITY_DATA}
     - kubectl config set-credentials gitlab --token="${USER_TOKEN}"
     - kubectl config set-context default --cluster=k8s --user=gitlab
