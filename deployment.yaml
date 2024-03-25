@@ -23,7 +23,7 @@ spec:
         - name: newsspring
           image: registry.gitlab.com/dpapajohn/newsspring:ci-test
           imagePullSecrets:
-            - name: gitlab-registry-secret
+          - name: gitlab-registry-secret
           ports:
             - containerPort: 8080
           livenessProbe:
