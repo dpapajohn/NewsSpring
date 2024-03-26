@@ -3,6 +3,12 @@ on:
   workflow_dispatch:
   
 jobs:
+  MyFirstJob:
+    name: hi
+    runs-on: ubuntu--latest
+    steps:
+      - name: hi
+        run: ls -al
   DockerPush:
     name: Build Docker Image And Push To ECR
     # allows the job to connect to the identity endpoint and recieve the token (for AWS roles, via github OIDC)
@@ -56,4 +62,10 @@ jobs:
           service: NewsSpringWithApplicationLoadBalancer
           cluster: NewsSpringCluster2
           wait-for-service-stability: true
-    
+  MyLastJob:
+    name: hi final
+    runs-on: ubuntu--latest
+    steps:
+      - name: hi
+        run: ls -al
+  
