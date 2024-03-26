@@ -4,7 +4,7 @@ on:
   
 jobs:
   DockerPush:
-    name: Build Docker Image And Push To ECR
+    name: Docker Build and Push
     # allows the job to connect to the identity endpoint and recieve the token (for AWS roles, via github OIDC)
     permissions:
       id-token: write
@@ -34,7 +34,7 @@ jobs:
             docker build -t $REGISTRY/$REPOSITORY:$IMAGE_TAG .
             docker push $REGISTRY/$REPOSITORY:$IMAGE_TAG
   EcsDeploy:
-    name: Use the published docker image to deploy to a service in the ECS cluster.
+    name: AWS ECS Deploy
     needs: [DockerPush]
     # allows the job to connect to the identity endpoint and recieve the token (for AWS roles, via github OIDC)
     permissions:
