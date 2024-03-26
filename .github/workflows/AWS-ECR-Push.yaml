@@ -41,6 +41,11 @@ jobs:
             docker push $REGISTRY/$REPOSITORY:$IMAGE_TAG
   EcsDeploy:
     name: Use the published docker image to deploy to a service in the ECS cluster.
+    # allows the job to connect to the identity endpoint and recieve the token (for AWS roles, via github OIDC)
+    permissions:
+      id-token: write
+      # makes sure we can still read our repository, too
+      contents: read
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repo
