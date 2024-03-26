@@ -57,7 +57,9 @@ http://newsspringloadbalancer-42707299.us-west-1.elb.amazonaws.com
 
 Keep in mind, this project is using the NewsApi.org APIs.
 https://newsapi.org/docs/endpoints/everything
+
 https://newsapi.org/docs/endpoints/top-headlines
+
 https://newsapi.org/docs/endpoints/sources
 
 ### News Articles by Source
@@ -69,6 +71,7 @@ You can get all of the articles from a given source with this API. Note that the
 Examples:
 
 http://localhost:80/api/articles/source/CNN
+
 http://newsspringloadbalancer-42707299.us-west-1.elb.amazonaws.com/api/articles/source/CNN
 
 
@@ -81,6 +84,7 @@ You can search news articles by keyword. This will search the article contents, 
 Examples:
 
 http://localhost:80/api/articles/keyword/apple
+
 http://newsspringloadbalancer-42707299.us-west-1.elb.amazonaws.com/api/articles/keyword/apple
 
 ### News Articles by Title
@@ -92,6 +96,7 @@ You can search news articles by title. This works like a keyword search, but is 
 Example:
 
 http://localhost:80/api/articles/title/grapes
+
 http://newsspringloadbalancer-42707299.us-west-1.elb.amazonaws.com/api/articles/title/grapes
 
 ### Top News Articles
@@ -107,7 +112,10 @@ Note that if you do not want to filter by category, you must pass 'all' as the c
 Examples:
 
 http://localhost:80/api/articles/top/us/all
+
 http://localhost:80/api/articles/top/us/science
 
+
 http://newsspringloadbalancer-42707299.us-west-1.elb.amazonaws.com/api/articles/top/us/all
+
 http://newsspringloadbalancer-42707299.us-west-1.elb.amazonaws.com/api/articles/top/us/science
