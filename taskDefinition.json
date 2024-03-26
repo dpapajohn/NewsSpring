@@ -1,0 +1,107 @@
+{
+    "taskDefinitionArn": "arn:aws:ecs:us-west-1:295590869255:task-definition/NewsSpringTaskCiTest:4",
+    "containerDefinitions": [
+        {
+            "name": "newsspring",
+            "image": "295590869255.dkr.ecr.us-west-1.amazonaws.com/dpapajohn-github:newsspring",
+            "cpu": 0,
+            "portMappings": [
+                {
+                    "name": "newsspring-8080-tcp",
+                    "containerPort": 80,
+                    "hostPort": 80,
+                    "protocol": "tcp",
+                    "appProtocol": "http"
+                }
+            ],
+            "essential": true,
+            "environment": [
+                {
+                    "name": "NEWS_API_KEY",
+                    "value": "<NEWS_API_KEY>"
+                }
+            ],
+            "environmentFiles": [],
+            "mountPoints": [],
+            "volumesFrom": [],
+            "ulimits": [],
+            "logConfiguration": {
+                "logDriver": "awslogs",
+                "options": {
+                    "awslogs-create-group": "true",
+                    "awslogs-group": "/ecs/NewsSpringTaskCiTest",
+                    "awslogs-region": "us-west-1",
+                    "awslogs-stream-prefix": "ecs"
+                },
+                "secretOptions": []
+            },
+            "healthCheck": {
+                "command": [
+                    "CMD-SHELL",
+                    "curl -f http://localhost/ || exit 1"
+                ],
+                "interval": 60,
+                "timeout": 5,
+                "retries": 2,
+                "startPeriod": 10
+            },
+            "systemControls": []
+        }
+    ],
+    "family": "NewsSpringTaskCiTest",
+    "taskRoleArn": "arn:aws:iam::295590869255:role/NewsSpringEcsTaskExecutionRole",
+    "executionRoleArn": "arn:aws:iam::295590869255:role/NewsSpringEcsTaskExecutionRole",
+    "networkMode": "awsvpc",
+    "revision": 4,
+    "volumes": [],
+    "status": "ACTIVE",
+    "requiresAttributes": [
+        {
+            "name": "com.amazonaws.ecs.capability.logging-driver.awslogs"
+        },
+        {
+            "name": "ecs.capability.execution-role-awslogs"
+        },
+        {
+            "name": "com.amazonaws.ecs.capability.ecr-auth"
+        },
+        {
+            "name": "com.amazonaws.ecs.capability.docker-remote-api.1.19"
+        },
+        {
+            "name": "com.amazonaws.ecs.capability.task-iam-role"
+        },
+        {
+            "name": "ecs.capability.container-health-check"
+        },
+        {
+            "name": "ecs.capability.execution-role-ecr-pull"
+        },
+        {
+            "name": "com.amazonaws.ecs.capability.docker-remote-api.1.18"
+        },
+        {
+            "name": "ecs.capability.task-eni"
+        },
+        {
+            "name": "com.amazonaws.ecs.capability.docker-remote-api.1.29"
+        }
+    ],
+    "placementConstraints": [],
+    "compatibilities": [
+        "EC2",
+        "FARGATE"
+    ],
+    "requiresCompatibilities": [
+        "FARGATE"
+    ],
+    "cpu": "512",
+    "memory": "1024",
+    "runtimePlatform": {
+        "cpuArchitecture": "X86_64",
+        "operatingSystemFamily": "LINUX"
+    },
+    "registeredAt": "2024-03-26T00:36:26.135Z",
+    "registeredBy": "arn:aws:iam::295590869255:root",
+    "tags": []
+}
