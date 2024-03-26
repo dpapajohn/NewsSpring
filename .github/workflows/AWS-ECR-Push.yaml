@@ -58,7 +58,7 @@ jobs:
       - name: Deploy Amazon ECS task definition
         uses: aws-actions/amazon-ecs-deploy-task-definition@v1
         with:
-          task-definition: taskDefinition.yaml
+          task-definition: taskDefinition.json
           service: NewsSpringWithApplicationLoadBalancer
           cluster: NewsSpringCluster2
           wait-for-service-stability: true
